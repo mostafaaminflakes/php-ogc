@@ -10,7 +10,7 @@ use ElevenLab\PHPOGC\DataTypes\LineString;
 use ElevenLab\PHPOGC\DataTypes\Point;
 use ElevenLab\PHPOGC\DataTypes\Polygon;
 
-class FactoryTest extends \PHPUnit_Framework_TestCase
+class FactoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testPointSuccess()
     {
@@ -225,11 +225,12 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \ElevenLab\PHPOGC\Exceptions\GeoSpatialException
-     * @expectedExceptionMessage A LineString instance that compose a Polygon must be circular (min 4 points, first and last equals).
      */
     public function testPolygonFails1()
     {
+        $this->expectException(GeoSpatialException::class);
+        $this->expectExceptionMessage('A LineString instance that compose a Polygon must be circular (min 4 points, first and last equals).');
+
         $p1 = new Point(1,1);
         $p2 = new Point(2,2);
         $p3 = new Point(3,3);

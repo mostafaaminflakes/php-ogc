@@ -2,7 +2,7 @@
 
 namespace ElevenLab\PHPOGC;
 
-use CrEOF\Geo\WKT\Parser as WKTParser;
+use LongitudeOne\Geo\WKT\Parser as WKTParser;
 use CrEOF\Geo\WKB\Parser as WKBParser;
 
 abstract class OGCObject
